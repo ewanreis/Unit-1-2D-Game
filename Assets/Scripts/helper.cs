@@ -4,8 +4,10 @@ using UnityEngine;
 public class helper : MonoBehaviour
 {
     public static void MoveEntity(float xVelocity, float yVelocity, Rigidbody2D entityRigid)
-    {
-        entityRigid.AddForce(new Vector2(xVelocity,yVelocity), ForceMode2D.Force);
+    {   if (entityRigid.velocity.x > -10f && entityRigid.velocity.x < 10f)
+            entityRigid.AddForce(new Vector2(xVelocity,0), ForceMode2D.Force);
+        if (entityRigid.velocity.y >= 0f && entityRigid.velocity.y < 1f)
+            entityRigid.AddForce(new Vector2(0, yVelocity), ForceMode2D.Impulse);
     }
     public static float PlayerMovementRestraints(bool jumping, bool isIdle, bool left, bool right, char mode)
     {   float velocity=0;
@@ -20,7 +22,7 @@ public class helper : MonoBehaviour
             break;
             case 'y':
             if (jumping == true)
-            velocity = 20f;
+            velocity = 1f;
             if (jumping == false)
             velocity = 0f;
             break;
