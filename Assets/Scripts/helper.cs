@@ -33,7 +33,7 @@ public class helper : MonoBehaviour
                 if (y > 0)
                     return true;
                 else if (y <= 0)
-                    return false;                
+                    return false;
                 break;
             case "left":
                 if (x > 0)
@@ -43,7 +43,7 @@ public class helper : MonoBehaviour
                 else if (x == 0)
                     return false;
                 break;
-            case "right":           
+            case "right":
                 if (x > 0)
                     return true;
                 else if (x < 0)
