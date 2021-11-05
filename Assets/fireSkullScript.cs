@@ -6,7 +6,7 @@ public class fireSkullScript : MonoBehaviour
 {
     // Update is called once per frame
     public GameObject player, skull, Bullet;
-    public float timer = 20;
+    public float timer = 200;
     void Update()
     {
         if (timer <= 0)

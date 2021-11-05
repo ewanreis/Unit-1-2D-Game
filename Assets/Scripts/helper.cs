@@ -67,10 +67,8 @@ public class helper : MonoBehaviour
         float step = 1 * Time.deltaTime; // calculate distance to move
         //rb.velocity = Vector3.MoveTowards(obj.transform.position, target.transform.position, step);
         rb.velocity = Vector3.MoveTowards(obj.transform.position, target.transform.position, Time.deltaTime * 2);
-
-        Vector2 moveDirection = (target.transform.position - obj.transform.position).normalized * 2;
+        Vector2 moveDirection = (target.transform.position - obj.transform.position).normalized * 20;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-
         Destroy(instance, 5f); // Destroy Bullet after 5 seconds
     } // Instantiate any projectile with a set Velocity
 }
