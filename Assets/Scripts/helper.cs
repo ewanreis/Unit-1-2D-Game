@@ -60,4 +60,17 @@ public class helper : MonoBehaviour
         }
         return false;
     }
+    public static void InstantiateFireBall(GameObject obj, GameObject target , float xpos, float ypos, float xvel, float yvel)
+    {
+        GameObject instance = Instantiate(obj, new Vector3(xpos, ypos, 0), Quaternion.identity);
+        Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
+        float step = 1 * Time.deltaTime; // calculate distance to move
+        //rb.velocity = Vector3.MoveTowards(obj.transform.position, target.transform.position, step);
+        rb.velocity = Vector3.MoveTowards(obj.transform.position, target.transform.position, Time.deltaTime * 2);
+
+        Vector2 moveDirection = (target.transform.position - obj.transform.position).normalized * 2;
+        rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
+
+        Destroy(instance, 5f); // Destroy Bullet after 5 seconds
+    } // Instantiate any projectile with a set Velocity
 }

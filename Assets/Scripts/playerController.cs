@@ -5,6 +5,7 @@ public class playerController : MonoBehaviour
 {   private Vector3 moveDelta;
     private bool isJumping, movingRight, movingLeft, idle;
     private Animator anim;
+    public float playerHealth = 100f;
     public GameObject player;
     Rigidbody2D playerRigid;
     void Start()
@@ -20,5 +21,24 @@ public class playerController : MonoBehaviour
         xVelocity = helper.PlayerMovementRestraints(isJumping,idle,movingLeft,movingRight,'x');
         yVelocity = helper.PlayerMovementRestraints(isJumping,idle,movingLeft,movingRight,'y');
         helper.MoveEntity(xVelocity,yVelocity, playerRigid);
+    }
+    void Update()
+    {
+        print(playerHealth);
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            playerHealth--;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            playerHealth--;
+        }
     }
 }
