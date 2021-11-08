@@ -1,3 +1,5 @@
 # Unit-1-2D-Game
 
-2D Basic Platformer Game
+W to jump
+A to move left
+D to move right
