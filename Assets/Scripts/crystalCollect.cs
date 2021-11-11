@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class crystalCollect : MonoBehaviour
 {
+    public AudioSource crystalSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        crystalSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
      void OnTriggerEnter2D(Collider2D other)
      {
          Destroy(gameObject);
