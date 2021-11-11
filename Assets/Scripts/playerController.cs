@@ -38,6 +38,7 @@ public class playerController : MonoBehaviour
         {
             playerHealth--;
         }
+         Destroy(gameObject);   
     }
 
     private void OnCollisionExit(Collision collision)
@@ -47,4 +48,5 @@ public class playerController : MonoBehaviour
             playerHealth--;
         }
     }
+
 }
